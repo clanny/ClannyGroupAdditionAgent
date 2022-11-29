@@ -11,7 +11,7 @@ RUN chmod +x /bin/ClannyGroupAdditionAgent
 
 RUN \
   apt-get update && \
-  apt-get install ca-certificates libssl-dev && \
+  apt-get install --yes ca-certificates libssl-dev && \
   apt-get clean
 
 CMD ["/bin/ClannyGroupAdditionAgent"]
