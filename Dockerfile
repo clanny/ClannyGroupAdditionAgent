@@ -6,4 +6,4 @@ COPY ./target/release/ClannyGroupAdditionAgent /clanny/ClannyGroupAdditionAgent
 
 RUN chmod +x /clanny/ClannyGroupAdditionAgent
 
-CMD ["/clanny/ClannyGroupAdditionAgent"]
+CMD "sleep 900 && /clanny/ClannyGroupAdditionAgent"
