@@ -4,6 +4,7 @@ extern crate dotenv;
 #[cfg(debug_assertions)]
 use dotenv::dotenv;
 use serde_json::json;
+use std::{thread, time::Duration};
 
 mod baserow_api;
 mod discord_api;
@@ -103,5 +104,7 @@ async fn main() {
 
     //.map(|v| v["name"].as_str().unwrap().to_string().unwrap()),
 
-    println!("ive finished, pls restart me in 15 minutes");
+    thread::sleep(Duration::from_secs(900));
+
+    println!("ive finished, pls restart me");
 }
