@@ -1,9 +1,12 @@
-FROM alpine:latest
+FROM rust:1.61 AS builder
+COPY . .
+RUN cargo build --release
 
+FROM alpine:latest
 WORKDIR /clanny
 
-COPY ./target/release/ClannyGroupAdditionAgent /clanny/ClannyGroupAdditionAgent
+COPY --from=builder ./target/release/ClannyGroupAdditionAgent /bin/ClannyGroupAdditionAgent
 
-RUN chmod +x /clanny/ClannyGroupAdditionAgent
+RUN chmod +x /bin/ClannyGroupAdditionAgent
 
-CMD ["/clanny/ClannyGroupAdditionAgent"]
+CMD ["/bin/ClannyGroupAdditionAgent"]
