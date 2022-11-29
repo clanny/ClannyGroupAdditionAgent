@@ -2,7 +2,7 @@ FROM rust:1.61 AS builder
 COPY . .
 RUN cargo build --release
 
-FROM ubuntu:latest
+FROM debian:latest
 WORKDIR /clanny
 
 COPY --from=builder ./target/release/ClannyGroupAdditionAgent /bin/ClannyGroupAdditionAgent
