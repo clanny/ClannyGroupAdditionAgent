@@ -17,11 +17,15 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+      
       - uses: actions-rs/cargo@v1
         name: Build
         with:
           command: build
           args: --release --all-features
+
+      - run: ls ./target/release
+
       - run: echo $GH_PAT | docker login ghcr.io -u clanny --password-stdin
         env:
           GH_PAT: ${{ secrets.GH_SECRET }}
