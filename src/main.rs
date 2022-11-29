@@ -80,9 +80,10 @@ async fn main() {
                         "color": 3319890,
                         "type": "rich",
                         "description": format!(
-                            "The account **{}** has been added to your group!\nYou should run </account:995722308670992517> with account ID being **{}** (the name) to configure Clanny to use the account!",
-                            group["Account"].to_string(),
-                            group["Account"].to_string()
+                            "The account **{}** has been added to [your group]({})!\nYou should run </account:995722308670992517> with account ID being **{}** (the name) to configure Clanny to use the account!",
+                            group["Account"].as_str().unwrap(),
+                            group["Group Link"].as_str().unwrap(),
+                            group["Account"].as_str().unwrap()
                         )
                     }
                     ]

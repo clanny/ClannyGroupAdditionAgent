@@ -6,7 +6,7 @@ use serde_json::{json, Value};
 pub async fn get_groups_not_notified(api_token: String) -> Result<Value, reqwest::Error> {
     let client = reqwest::Client::new();
     let resp = client
-        .get("https://baserow.clanny.systems/api/database/rows/table/551/?user_field_names=true&filter__field_4748__boolean=true&include=Group ID,Requestor,Discord Server ID,Added,User Notified,Account&filter__field_4744__boolean=false")
+        .get("https://baserow.clanny.systems/api/database/rows/table/551/?user_field_names=true&filter__field_4748__boolean=true&include=Group ID,Requestor,Discord Server ID,Added,User Notified,Account,Group Link&filter__field_4744__boolean=false")
         .header("Authorization", "Token ".to_string() + &api_token)
         .send()
         .await

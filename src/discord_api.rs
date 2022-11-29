@@ -60,7 +60,7 @@ async fn create_dm(user_id: String, api_token: String) -> String {
         .await
         .unwrap();
 
-    resp["id"].to_string()
+    resp["id"].as_str().unwrap().to_string()
 }
 
 pub async fn send_dm_message(user_id: String, message: Value, api_token: String) {
