@@ -1,0 +1,8 @@
+.env
+src
+target/debug
+.github
+.vscode
+Cargo.lock
+Cargo.toml
+.gitignore
