@@ -30,9 +30,6 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_SECRET }}
         name: Login to GH container registry
-      -
-        name: Build Docker image and push it
-        uses: docker/build-push-action@v3
-        with:
-          push: true
-          tags: ghcr.io/clanny/group_addition_agent:latest
+
+      - run: docker build . --tag ghcr.io/clanny/group_addition_agent:latest
+      - run: docker push ghcr.io/clanny/group_addition_agent:latest
