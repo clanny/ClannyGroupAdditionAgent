@@ -1,7 +1,4 @@
 .env
-src
 .github
 .vscode
-Cargo.lock
-Cargo.toml
 .gitignore
