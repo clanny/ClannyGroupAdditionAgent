@@ -9,4 +9,6 @@ COPY --from=builder ./target/release/ClannyGroupAdditionAgent /bin/ClannyGroupAd
 
 RUN chmod +x /bin/ClannyGroupAdditionAgent
 
+RUN apt-get update && apt-get install -y libssl-dev
+
 CMD ["/bin/ClannyGroupAdditionAgent"]
